@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>Something is Bad on the Internet</title> 
+  </head>
+  <body>
+    <h1>Something is Bad on the Internet</h1>
+
+    <div class="start">
+      Is there an immediate threat to human safety?
+      <div class="next"><a href="#" class="yes">Yes</a> | <a href="#" class="no">No</a></div>
+    </div>
+
+    <div class="case threat-to-human-safety yes">
+      Contact local law enforcement.
+      <div><a href="#" class="restart">Start over</a></div>
+    </div>
+
+    <div class="case threat-to-human-safety no">
+      Does this issue involve child sexual abuse materials?
+      <div class="next"><a href="#" class="yes">Yes</a> | <a href="#" class="no">No</a></div>
+    </div>
+
+    <div class="case child-sexual-abuse-materials yes">
+      Contact local CSAM authority.
+      <div><a href="#" class="restart">Start over</a></div>
+    </div>
+
+    <div class="case child-sexual-abuse-materials no">
+      Is the issue related to human trafficking, distribution of opioids, or a specific and credible threat to safety?
+      <div class="next"><a href="#" class="yes">Yes</a> | <a href="#" class="no">No</a></div>
+    </div>
+
+    <div class="case human-trafficking-opioids-threat-to-safety yes">
+      Contact the domain registrar.
+      <div><a href="#" class="restart">Start over</a></div>
+    </div>
+
+    <div class="case human-trafficking-opioids-threat-to-safety no">
+      Is the issue related to content on a platform (like a social media platform like Facebook or Youtube or forum platform like Reddit)?
+      <div class="next"><a href="#" class="yes">Yes</a> | <a href="#" class="no">No</a></div>
+    </div>
+
+    <div class="case content-on-a-platform yes">
+      Contact the platform.
+      <div><a href="#" class="restart">Start over</a></div>
+    </div>
+
+    <div class="case content-on-a-platform no">
+      Is the issue related to: malware, botnets, phishing or pharming?
+      <div class="next"><a href="#" class="yes">Yes</a> | <a href="#" class="no">No</a></div>
+    </div>
+
+    <div class="case malware-botnets-phising-pharming yes">
+      Contact the domain registrar.
+      <div><a href="#" class="restart">Start over</a></div>
+    </div>
+
+    <div class="case malware-botnets-phising-pharming no">
+      Is the issue with the domain name?
+      <div class="next"><a href="#" class="yes">Yes</a> | <a href="#" class="no">No</a></div>
+    </div>
+
+    <div class="case issue-with-domain-name yes">
+      Is the issue trademark related?
+      <div class="next"><a href="#" class="yes">Yes</a> | <a href="#" class="no">No</a></div>
+    </div>
+
+    <div class="case issue-with-domain-name no">
+      Is the issue related to content on a website?
+      <div class="next"><a href="#" class="yes">Yes</a> | <a href="#" class="no">No</a></div>
+    </div>
+
+    <div class="case issue-trademark-related yes">
+      Contact the domain registrant. If the domain registrant is not responsive, contact a URS/URDP provider.
+      <div><a href="#" class="restart">Start over</a></div>
+    </div>
+
+    <div class="case issue-trademark-related no">
+      Is the issue cybersquatting?
+      <div class="next"><a href="#" class="yes">Yes</a> | <a href="#" class="no">No</a></div>
+    </div>
+
+    <div class="case issue-cybersquatting yes">
+      Contact the domain registrant.
+      <div><a href="#" class="restart">Start over</a></div>
+    </div>
+
+    <div class="case issue-cybersquatting no">
+      <!-- submit a new issue? -->
+      Didn't find what you were looking for?
+      <div><a href="#">Submit an issue</a> on GitHub or <a href="#" class="restart">start over</a>.</div>
+    </div>
+
+
+    <div class="case issue-content-on-website yes">
+      Contact the website administrator. Does this resolve the issue?
+      <div class="next"><a href="#" class="yes">Yes</a> | <a href="#" class="no">No</a></div>
+    </div>
+    
+    <div class="case issue-content-on-website no">
+      <!-- Spam? Some other protocol? -->
+      Didn't find what you were looking for?
+      <div><a href="#">Submit an issue</a> on GitHub or <a href="#" class="restart">start over</a>.</div>
+    </div>
+    
+    <div class="case website-administrator-contacted yes">
+      Thank you for reporting something bad online.
+      <div><a href="#" class="restart">Start over</a></div>
+    </div>
+    
+    <div class="case website-administrator-contacted no">
+      Contact the domain registrant. Does this resolve the issue?
+      <div class="next"><a href="#" class="yes">Yes</a> | <a href="#" class="no">No</a></div>
+    </div>
+
+    <div class="case domain-registrant-contacted yes">
+      Thank you for reporting something bad online.
+      <div><a href="#" class="restart">Start over</a></div>
+    </div>
+
+    <div class="case domain-registrant-contacted no">
+      Contact the web host. Does this resolve the issue?
+      <div class="next"><a href="#" class="yes">Yes</a> | <a href="#" class="no">No</a></div>
+    </div>
+
+    <div class="case webhost-contacted yes">
+      Thank you for reporting something bad online.
+      <div><a href="#" class="restart">Start over</a></div>
+    </div>
+
+    <div class="case webhost-contacted no">
+      If the issue causes harm to humans, contact the domain registrar. 
+      <div><a href="#" class="restart">Start over</a></div>
+    </div>
+
+
+<script type="text/javascript">
+// hide cases
+function hideCases() {
+  document.querySelector("div.start").hidden = false;
+  const cases = document.querySelectorAll("div.case");
+  for (let i = 0; i < cases.length; i++) {
+    cases[i].hidden = true;
+  }
+}
+
+function configure(className, nextClassName) {
+  const links = document.querySelectorAll(`div.${className} > .next > a`)
+  for (let i = 0; i < links.length; i++) {
+    links[i].onclick = function(e) {
+      console.log(`Hide ${className}, show ${nextClassName} ${e.target.className}`);
+      const elementsToHide = document.querySelectorAll(`div.${className}`)
+      for (let k = 0; k < elementsToHide.length; k++) {
+        elementsToHide[k].hidden = true;
+      }
+      document.querySelector(`div.${nextClassName}.${e.target.className}`).hidden = false;
+    }
+  };
+}
+
+configure("start", "threat-to-human-safety");
+configure("threat-to-human-safety", "child-sexual-abuse-materials");
+configure("child-sexual-abuse-materials", "human-trafficking-opioids-threat-to-safety");
+configure("human-trafficking-opioids-threat-to-safety", "content-on-a-platform");
+configure("content-on-a-platform", "malware-botnets-phising-pharming");
+configure("malware-botnets-phising-pharming", "issue-with-domain-name");
+configure("issue-with-domain-name", "issue-trademark-related");
+configure("issue-trademark-related", "issue-cybersquatting");
+configure("issue-cypersquatting", "");
+configure("issue-with-domain-name","issue-content-on-website");
+configure("issue-content-on-website", "website-administrator-contacted");
+configure("website-administrator-contacted", "domain-registrant-contacted");
+configure("domain-registrant-contacted", "webhost-contacted");
+
+
+const restartLinks = document.querySelectorAll("a.restart");
+for (let i = 0; i < restartLinks.length; i++) {
+  restartLinks[i].onclick = function(e) {
+    hideCases();
+  };
+}
+
+hideCases();
+
+</script>
+
+  </body>
+  
+</html>
